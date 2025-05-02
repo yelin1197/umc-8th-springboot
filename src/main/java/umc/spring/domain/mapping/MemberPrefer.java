@@ -1,5 +1,10 @@
 package umc.spring.domain.mapping;
 
+import jakarta.persistence.*;
+import lombok.*;
+import umc.spring.domain.Member;
+import umc.spring.domain.common.BaseEntity;
+
 @Entity
 @Getter
 @Builder
@@ -11,5 +16,8 @@ public class MemberPrefer extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    // 🔥 이거 꼭 필요!
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 }
