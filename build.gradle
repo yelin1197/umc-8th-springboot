@@ -41,24 +41,30 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java', 'src/main/resources']
+		}
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
 
-// QueryDSL 설정
+// Querydsl 설정부
 def generated = 'src/main/generated'
 
 querydsl {
 	jpa = true
 	querydslSourcesDir = generated
 }
-
 sourceSets {
-	main.java.srcDir generated // Q 클래스가 생성될 디렉토리 설정
+	main.java.srcDir generated
 }
 
-// QueryDSL 관련 컴파일 설정
-compileQuerydsl {
+compileQuerydsl{
 	options.annotationProcessorPath = configurations.querydsl
 }
 
