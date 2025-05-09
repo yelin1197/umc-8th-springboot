@@ -22,6 +22,11 @@ public class QReview extends EntityPathBase<Review> {
 
     public static final QReview review = new QReview("review");
 
+    public final umc.study.domain.common.QBaseEntity _super = new umc.study.domain.common.QBaseEntity(this);
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final QMember member;
@@ -29,6 +34,9 @@ public class QReview extends EntityPathBase<Review> {
     public final NumberPath<Float> score = createNumber("score", Float.class);
 
     public final StringPath title = createString("title");
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
 
     public QReview(String variable) {
         this(Review.class, forVariable(variable), INITS);
