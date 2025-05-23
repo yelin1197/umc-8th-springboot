@@ -18,6 +18,4 @@ public class FoodCategory {
     private Long id;
 
     private String name;
-
-
 }
