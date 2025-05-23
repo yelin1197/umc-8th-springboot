@@ -18,19 +18,15 @@ public class ApiResponse<T> {
     private final String code;
     private final String message;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private T result;
-
+    private T result; //성공시 실제 데이터(TempResponse), 실패시 에러 상세 객체(ReasonDTO)삽입
 
     // 성공한 경우 응답 생성
-
     public static <T> ApiResponse<T> onSuccess(T result){
         return new ApiResponse<>(true, SuccessStatus._OK.getCode() , SuccessStatus._OK.getMessage(), result);
     }
-
     public static <T> ApiResponse<T> of(BaseCode code, T result){
             return new ApiResponse<>(true, code.getReasonHttpStatus().getCode() , code.getReasonHttpStatus().getMessage(), result);
     }
-
 
     // 실패한 경우 응답 생성
     public static <T> ApiResponse<T> onFailure(String code, String message, T data){
