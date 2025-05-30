@@ -6,6 +6,7 @@ import umc.study.domain.common.BaseEntity;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -16,6 +17,7 @@ public class Review extends BaseEntity {
     private Long id;
 
     private String title;
+    private String body;
 
     private Float score;
 
