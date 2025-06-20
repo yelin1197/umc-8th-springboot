@@ -17,3 +17,5 @@ spring:
         hbm2ddl:
           auto: update  # 테이블 수정이 자동으로 이루어짐
         default_batch_fetch_size: 1000
+server:
+  port: 8082
