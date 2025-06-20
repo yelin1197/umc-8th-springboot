@@ -43,8 +43,18 @@ public class Member extends BaseEntity {
 
     private LocalDate inactiveDate;
 
-    //@Column(nullable = false, length = 50)
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 
     @ColumnDefault("0")
     private Integer point;
